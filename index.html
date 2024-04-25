@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
+    <div class="container">
     <header>
         <h1>AI German Poem Generator</h1>
     </header>
     <main>
         <form>
-            <input type="text" placeholder="Enter the topic of the German poem" autofocus required autocomplete="off"/>
-            <input type="submit"/>
+            <input type="text" class="prompt" placeholder="Enter the topic of the German poem" autofocus required autocomplete="off"/>
+            <input type="submit" class="button"/>
         </form>
-    <div>
+    <div class="poem">
       Wie lange mussten wir abwarten
       <br/>
       dass es uns seine Blüte zeigt
@@ -23,6 +24,7 @@
     </main>
     
     <footer>This AI project was coded by <a href="https://github.com/Lena3891" target="_blank">Magdalena Zyglewicz</a> and is open-sourced on <a href="https://github.com/Lena3891/german-poem-generator" target="_blank">GitHub</a> and hosted on <a href="https://ai-german-poem-generator.netlify.app" target="_blank">Netlify</a></footer>
+</div>
     <script src="src/index.js"></script>
 </body>
 </html>
