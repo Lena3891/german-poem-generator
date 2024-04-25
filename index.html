@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI German Poem Generator</title>
     <link rel="stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 </head>
 <body>
     <div class="container">
@@ -12,15 +13,12 @@
         <h1>AI German Poem Generator</h1>
     </header>
     <main>
-        <form>
+        <form id="poem-generator-form">
             <input type="text" class="prompt" placeholder="Enter the topic of the German poem" autofocus required autocomplete="off"/>
             <input type="submit" class="button"/>
         </form>
-    <div class="poem">
-      Wie lange mussten wir abwarten
-      <br/>
-      dass es uns seine Blüte zeigt
-    </div>
+    <div class="poem" id="poem"></div>
+    
     </main>
     
     <footer>This AI project was coded by <a href="https://github.com/Lena3891" target="_blank">Magdalena Zyglewicz</a> and is open-sourced on <a href="https://github.com/Lena3891/german-poem-generator" target="_blank">GitHub</a> and hosted on <a href="https://ai-german-poem-generator.netlify.app" target="_blank">Netlify</a></footer>
