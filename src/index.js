@@ -1,32 +1,29 @@
-new Typewriter("#poem", {
-  strings: `Generating the poem here...`,
-  autoStart: true,
-});
-
-let form = document.querySelector("#poem-generator-form");
+function showPoem(response) {
+  new Typewriter("#poem", {
+    strings: response.data.answer,
+    autoStart: true,
+    delay: 30,
+    cursor: "",
+  });
+}
 
 function generatePoem(event) {
   event.preventDefault();
-  let instructions = document.querySelector(".instructions");
 
-  let apiKey = "do37btb04e66032f8eb1ab0493255777";
+  let instructionsInput = document.querySelector("#input");
+
+  let apiKey = "8f89013d30bfc04f0f041a1bdo2t3fe7";
+  let prompt = `generate a poem about ${instructionsInput.value}`;
   let context =
-    "You are a poets and poem expert, please carefully follow the instructions.";
-  let prompt = `Write a poem about the topic: ${instructions.value}?`;
+    "You are a poem expert and write short poems. The poem should be 4 lines in basic HTML. Don't include a title.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   let poemElement = document.querySelector("#poem");
-  poemElement.innerHTML = `<span class="blink">⏳ Generating poem about ${instructions.value}</span>`;
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<div class = "generating">⌛Generating a poem about ${instructionsInput.value}...</div>`;
 
-  function displayPoem(response) {
-    new Typewriter("#poem", {
-      strings: `${response.data.answer}`,
-      autoStart: true,
-      delay: 1,
-      cursor: "",
-    });
-  }
-  axios.get(apiUrl).then(displayPoem);
+  axios.get(apiUrl).then(showPoem);
 }
 
-form.addEventListener("submit", generatePoem);
+let formElement = document.querySelector("#poem-form");
+formElement.addEventListener("submit", generatePoem);
